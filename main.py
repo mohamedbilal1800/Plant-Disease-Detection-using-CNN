@@ -16,7 +16,15 @@ def model_prediction(test_image):
 
 #Sidebar
 st.sidebar.title("Dashboard")
-app_mode = st.sidebar.selectbox("Select Page",["Home","About","Disease Recognition"])
+st.sidebar.image("Home_DPR.jpg", use_column_width=True)
+st.sidebar.markdown("""
+    ### How It Works
+    1. **Upload Image:** upload an image of a plant with suspected diseases.
+    2. **Analysis:** Our system will process the image using advanced algorithms to identify potential diseases.
+    3. **Results:** View the results and take the required action.
+""")
+app_mode = "Disease Recognition Model"
+#app_mode = st.sidebar.selectbox("Select Page",["Home","About","Disease Recognition"])
 
 #Main Page
 if(app_mode=="Home"):
@@ -61,8 +69,8 @@ elif(app_mode=="About"):
                 """)
 
 #Prediction Page
-elif (app_mode=="Disease Recognition"):
-    st.header("Disease Recognition")
+elif (app_mode=="Disease Recognition Model"):
+    st.header("Disease Recognition Model")
     test_image = st.file_uploader("Choose an Image:")
 
     if test_image is not None:
